@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Web.Services.Protocols;
 using StockExchange.Service;
 using StockExchangeDataModel;
 
@@ -18,22 +19,32 @@ namespace StockExchange
     // [System.Web.Script.Services.ScriptService]
     public class StockExchangeService : System.Web.Services.WebService
     {
+        public AuthSoapHd spAuthenticationHeader;
+
         private StockExhangeServiceManager stockExhangeServiceManager;
         public StockExchangeService()
         {
             stockExhangeServiceManager = new StockExhangeServiceManager();
         }
 
-        [WebMethod]
+        [WebMethod, SoapHeader("spAuthenticationHeader")]
         public List<Stock> GetAllStock()
         {
-            return stockExhangeServiceManager.GetAllStock().ToList();
+            if (spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
+            {
+                return stockExhangeServiceManager.GetAllStock().ToList();
+            }
+            return null;
         }
 
-        [WebMethod]
+        [WebMethod, SoapHeader("spAuthenticationHeader")]
         public double GetStockPrice(string stockCode)
         {
-            return stockExhangeServiceManager.GetStockPrice(stockCode);
+            if (spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
+            {
+                return stockExhangeServiceManager.GetStockPrice(stockCode);
+            }
+            return 0.0;
         }
 
 
@@ -49,22 +60,40 @@ namespace StockExchange
             return stockExhangeServiceManager.SignUp(newUser);
         }
 
-        [WebMethod]
+        [WebMethod, SoapHeader("spAuthenticationHeader")]
         public bool CreatePortfolio(Portfolio newPortfolio)
         {
-            return stockExhangeServiceManager.CreatePortfolio(newPortfolio);
+            if (spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
+            {
+                return stockExhangeServiceManager.CreatePortfolio(newPortfolio);
+            }
+            return false;
         }
 
-        [WebMethod]
+        [WebMethod, SoapHeader("spAuthenticationHeader")]
         public List<Portfolio> GetAllPortfolios(string userName)
         {
-            return stockExhangeServiceManager.GetAllPortfolios(userName);
+            if (spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
+            {
+                return stockExhangeServiceManager.GetAllPortfolios(userName);
+            }
+            return null;
         }
 
-        [WebMethod]
+        [WebMethod, SoapHeader("spAuthenticationHeader")]
         public List<Stock> GetPortfolioDetails(int portfolioId)
         {
-            return stockExhangeServiceManager.GetPortfolioDetails(portfolioId);
-        } 
+            if (spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
+            {
+                return stockExhangeServiceManager.GetPortfolioDetails(portfolioId);
+            }
+            return null;
+        }
+    }
+
+    public class AuthSoapHd : SoapHeader
+    {
+        public string strUserName;
+        public string strPassword;
     }
 }
