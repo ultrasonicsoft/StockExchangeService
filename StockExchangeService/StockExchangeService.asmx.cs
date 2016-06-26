@@ -54,5 +54,17 @@ namespace StockExchange
         {
             return stockExhangeServiceManager.CreatePortfolio(newPortfolio);
         }
+
+        [WebMethod]
+        public List<Portfolio> GetAllPortfolios(string userName)
+        {
+            return stockExhangeServiceManager.GetAllPortfolios(userName);
+        }
+
+        [WebMethod]
+        public List<Stock> GetPortfolioDetails(int portfolioId)
+        {
+            return stockExhangeServiceManager.GetPortfolioDetails(portfolioId);
+        } 
     }
 }

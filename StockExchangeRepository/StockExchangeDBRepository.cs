@@ -133,6 +133,68 @@ namespace StockExchange.Service
             return hasNewPortfolioCreated;
         }
 
+        public List<Portfolio> GetAllPortfolios(string userName)
+        {
+            var allPortfolios = new List<Portfolio>();
+            try
+            {
+                IList<KeyValuePair<string, object>> parameters = new List<KeyValuePair<string, object>>
+                {
+                    new KeyValuePair<string, object>("@UserName", userName)
+                };
+                var result = dbManager.ExecuteProcedure("GetAllPortfolios", parameters);
+
+                if (result.Tables[0].Rows.Count != 0)
+                {
+                    foreach (DataRow row in result.Tables[0].Rows)
+                    {
+                        allPortfolios.Add(new Portfolio
+                        {
+                            Id = int.Parse(row["Id"].ToString()),
+                            Name = row["Name"].ToString()
+                        });
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            return allPortfolios;
+        }
+
+        public List<Stock> GetPortfolioDetails(int portfolioId)
+        {
+            var portfolioDetails = new List<Stock>();
+            try
+            {
+                IList<KeyValuePair<string, object>> parameters = new List<KeyValuePair<string, object>>
+                {
+                    new KeyValuePair<string, object>("@PortfolioId", portfolioId)
+                };
+                var result = dbManager.ExecuteProcedure("GetPortfolioDetails", parameters);
+
+                if (result.Tables[0].Rows.Count != 0)
+                {
+                    foreach (DataRow row in result.Tables[0].Rows)
+                    {
+                        portfolioDetails.Add(new Stock
+                        {
+                            Id = int.Parse(row["Id"].ToString()),
+                            Name = row["Name"].ToString(),
+                            Code = row["Code"].ToString(),
+                            Price = double.Parse(row["Price"].ToString())
+                        });
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            return portfolioDetails;
+        }
+
         private int CreateNewPortfolio(Portfolio newPortfolio)
         {
             var newPortfolioId = 0;

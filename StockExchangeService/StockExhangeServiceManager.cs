@@ -55,5 +55,15 @@ namespace StockExchange
         {
             return stockExchangeDbRepository.CreatePortfolio(newPortfolio);
         }
+
+        public List<Portfolio> GetAllPortfolios(string userName)
+        {
+            return stockExchangeDbRepository.GetAllPortfolios(userName);
+        }
+
+        public List<Stock> GetPortfolioDetails(int portfolioId)
+        {
+            return stockExchangeDbRepository.GetPortfolioDetails(portfolioId);
+        }
     }
 }

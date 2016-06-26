@@ -54,5 +54,15 @@ namespace StockExchange.Service
         {
             return true;
         }
+
+        public List<Portfolio> GetAllPortfolios(string userName)
+        {
+            return null;
+        }
+
+        public List<Stock> GetPortfolioDetails(int portfolioId)
+        {
+            return null;
+        }
     }
 }

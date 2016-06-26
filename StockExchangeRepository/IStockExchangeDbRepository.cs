@@ -11,6 +11,8 @@ namespace StockExchange.Service
         bool Logon(string userName, string password);
         bool SignUp(User newUser);
         bool CreatePortfolio(Portfolio newPortfolio);
+        List<Portfolio> GetAllPortfolios(string userName);
+        List<Stock> GetPortfolioDetails(int portfolioId);
     }
    
 }
