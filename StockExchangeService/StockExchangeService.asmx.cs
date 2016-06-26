@@ -48,5 +48,11 @@ namespace StockExchange
         {
             return stockExhangeServiceManager.SignUp(newUser);
         }
+
+        [WebMethod]
+        public bool CreatePortfolio(Portfolio newPortfolio)
+        {
+            return stockExhangeServiceManager.CreatePortfolio(newPortfolio);
+        }
     }
 }

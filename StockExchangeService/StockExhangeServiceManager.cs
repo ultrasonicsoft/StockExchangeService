@@ -50,5 +50,10 @@ namespace StockExchange
         {
             return stockExchangeDbRepository.SignUp(newUser);
         }
+
+        public bool CreatePortfolio(Portfolio newPortfolio)
+        {
+            return stockExchangeDbRepository.CreatePortfolio(newPortfolio);
+        }
     }
 }

@@ -49,5 +49,10 @@ namespace StockExchange.Service
         {
             return true;
         }
+
+        public bool CreatePortfolio(Portfolio newPortfolio)
+        {
+            return true;
+        }
     }
 }

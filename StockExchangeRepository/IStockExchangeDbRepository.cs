@@ -10,6 +10,7 @@ namespace StockExchange.Service
         double GetStockPrice(string stockCode);
         bool Logon(string userName, string password);
         bool SignUp(User newUser);
+        bool CreatePortfolio(Portfolio newPortfolio);
     }
    
 }
