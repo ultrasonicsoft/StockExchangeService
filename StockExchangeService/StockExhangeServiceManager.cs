@@ -40,5 +40,9 @@ namespace StockExchange
             return stockExchangeDataProvider.GetStockPrice(stockCode);
         }
 
+        public bool Logon(string userName, string password)
+        {
+            return stockExchangeDataProvider.Logon(userName, password);
+        }
     }
 }

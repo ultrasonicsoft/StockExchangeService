@@ -29,9 +29,17 @@ namespace StockExchange
             return stockExhangeServiceManager.GetAllStock().ToList();
         }
 
+        [WebMethod]
         public double GetStockPrice(string stockCode)
         {
             return stockExhangeServiceManager.GetStockPrice(stockCode);
+        }
+
+
+        [WebMethod]
+        public bool Logon(string userName, string password)
+        {
+            return stockExhangeServiceManager.Logon(userName, password);
         }
     }
 }

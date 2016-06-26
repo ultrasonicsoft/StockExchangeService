@@ -6,5 +6,6 @@ namespace StockExchange
     {
         IList<Stock> GetAllStock();
         double GetStockPrice(string stockCode);
+        bool Logon(string userName, string password);
     }
 }

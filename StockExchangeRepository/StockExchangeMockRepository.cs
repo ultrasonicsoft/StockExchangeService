@@ -39,5 +39,9 @@ namespace StockExchange.Service
             return stock.Price;
         }
 
+        public bool Logon(string userName, string password)
+        {
+            return true;
+        }
     }
 }

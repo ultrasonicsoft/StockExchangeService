@@ -67,5 +67,30 @@ namespace StockExchange.Service
 
             return stockPrice;
         }
+
+        public bool Logon(string userName, string password)
+        {
+            bool isAuthenticated = false;
+            try
+            {
+                IList<KeyValuePair<string, object>> parameters = new List<KeyValuePair<string, object>>
+                {
+                    new KeyValuePair<string, object>("@Username", userName),
+                    new KeyValuePair<string, object>("@Password", password),
+                    
+                };
+                var result = dbManager.ExecuteProcedure("IsAuthenticatedUser", parameters);
+                if (result.Tables[0].Rows.Count != 0)
+                {
+                    var dbResult = result.Tables[0].Rows[0][0].ToString();
+                    bool.TryParse(dbResult, out isAuthenticated);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            return isAuthenticated;
+        }
     }
 }

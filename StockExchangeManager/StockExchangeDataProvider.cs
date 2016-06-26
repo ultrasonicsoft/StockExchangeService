@@ -28,6 +28,11 @@ namespace StockExchange
             return stockExchangeDbRepository.GetStockPrice(stockCode);
         }
 
+        public bool Logon(string userName, string password)
+        {
+            return stockExchangeDbRepository.Logon(userName, password);
+        }
+
         private void MapDbStockToStock(IList<DbStock> dbStocks, IList<Stock> stocks)
         {
             foreach (var dbStock in dbStocks)

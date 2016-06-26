@@ -7,6 +7,7 @@ namespace StockExchange.Service
     {
         IList<DbStock> GetAllStocks();
         double GetStockPrice(string stockCode);
+        bool Logon(string userName, string password);
     }
    
 }
