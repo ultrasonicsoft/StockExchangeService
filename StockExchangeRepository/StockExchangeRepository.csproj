@@ -48,6 +48,12 @@
     <Compile Include="StockExchangeDBRepository.cs" />
     <Compile Include="StockExchangeMockRepository.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StockExchangeDataModel\StockExchangeDataModel.csproj">
+      <Project>{B044CE44-5C66-41AD-BA6B-D462F19A1995}</Project>
+      <Name>StockExchangeDataModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

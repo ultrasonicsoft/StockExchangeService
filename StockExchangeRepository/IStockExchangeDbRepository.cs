@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using StockExchangeDataModel;
 using StockExchangeRepository.Model;
 
 namespace StockExchange.Service
@@ -8,6 +9,7 @@ namespace StockExchange.Service
         IList<DbStock> GetAllStocks();
         double GetStockPrice(string stockCode);
         bool Logon(string userName, string password);
+        bool SignUp(User newUser);
     }
    
 }

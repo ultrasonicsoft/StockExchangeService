@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using StockExchangeDataModel;
 using StockExchangeRepository.DbManager;
 using StockExchangeRepository.Model;
 
@@ -91,6 +92,29 @@ namespace StockExchange.Service
                 throw exception;
             }
             return isAuthenticated;
+        }
+
+        public bool SignUp(User newUser)
+        {
+            var userCreated = false;
+            try
+            {
+                IList<KeyValuePair<string, object>> parameters = new List<KeyValuePair<string, object>>
+                {
+                    new KeyValuePair<string, object>("@Username", newUser.UserName),
+                    new KeyValuePair<string, object>("@Password", newUser.Password),
+                    new KeyValuePair<string, object>("@Role", "User"),
+                    new KeyValuePair<string, object>("@Email", newUser.Email),
+
+                };
+                var result = dbManager.ExecuteProcedure("CreateNewUser", parameters);
+                userCreated = true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            return userCreated;
         }
     }
 }

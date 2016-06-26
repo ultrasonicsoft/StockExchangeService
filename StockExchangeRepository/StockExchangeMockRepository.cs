@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using StockExchangeDataModel;
 using StockExchangeRepository.Model;
 
 namespace StockExchange.Service
@@ -40,6 +41,11 @@ namespace StockExchange.Service
         }
 
         public bool Logon(string userName, string password)
+        {
+            return true;
+        }
+
+        public bool SignUp(User newUser)
         {
             return true;
         }

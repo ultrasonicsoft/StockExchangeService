@@ -5,6 +5,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Web;
 using StockExchange.Service;
+using StockExchangeDataModel;
 
 namespace StockExchange
 {
@@ -43,6 +44,11 @@ namespace StockExchange
         public bool Logon(string userName, string password)
         {
             return stockExchangeDataProvider.Logon(userName, password);
+        }
+
+        public bool SignUp(User newUser)
+        {
+            return stockExchangeDbRepository.SignUp(newUser);
         }
     }
 }

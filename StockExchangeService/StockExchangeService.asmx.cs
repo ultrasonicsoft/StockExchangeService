@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using StockExchange.Service;
+using StockExchangeDataModel;
 
 namespace StockExchange
 {
@@ -40,6 +41,12 @@ namespace StockExchange
         public bool Logon(string userName, string password)
         {
             return stockExhangeServiceManager.Logon(userName, password);
+        }
+
+        [WebMethod]
+        public bool SignUp(User newUser)
+        {
+            return stockExhangeServiceManager.SignUp(newUser);
         }
     }
 }

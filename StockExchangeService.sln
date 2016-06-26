@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchangeRepository", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchangeDataModel", "StockExchangeDataModel\StockExchangeDataModel.csproj", "{B044CE44-5C66-41AD-BA6B-D462F19A1995}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{77972D93-34ED-4317-806D-2CC4AED5E719}"
+	ProjectSection(SolutionItems) = preProject
+		StockExchangeDB.sql = StockExchangeDB.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
