@@ -33,7 +33,7 @@ namespace StockExchange
         [WebMethod, SoapHeader("spAuthenticationHeader")]
         public List<Stock> GetAllStock()
         {
-            if (spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
+            if (spAuthenticationHeader != null && spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
             {
                 return stockExhangeServiceManager.GetAllStock().ToList();
             }
@@ -43,7 +43,7 @@ namespace StockExchange
         [WebMethod, SoapHeader("spAuthenticationHeader")]
         public double GetStockPrice(string stockCode)
         {
-            if (spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
+            if (spAuthenticationHeader != null && spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
             {
                 return stockExhangeServiceManager.GetStockPrice(stockCode);
             }
@@ -66,7 +66,7 @@ namespace StockExchange
         [WebMethod, SoapHeader("spAuthenticationHeader")]
         public bool CreatePortfolio(Portfolio newPortfolio)
         {
-            if (spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
+            if (spAuthenticationHeader != null &&  spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
             {
                 return stockExhangeServiceManager.CreatePortfolio(newPortfolio);
             }
@@ -76,7 +76,7 @@ namespace StockExchange
         [WebMethod, SoapHeader("spAuthenticationHeader")]
         public List<Portfolio> GetAllPortfolios(string userName)
         {
-            if (spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
+            if (spAuthenticationHeader != null &&  spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
             {
                 return stockExhangeServiceManager.GetAllPortfolios(userName);
             }
@@ -86,7 +86,7 @@ namespace StockExchange
         [WebMethod, SoapHeader("spAuthenticationHeader")]
         public List<Stock> GetPortfolioDetails(int portfolioId)
         {
-            if (spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
+            if (spAuthenticationHeader != null &&  spAuthenticationHeader.strUserName == "TestUser" && spAuthenticationHeader.strPassword == "TestPassword")
             {
                 return stockExhangeServiceManager.GetPortfolioDetails(portfolioId);
             }
