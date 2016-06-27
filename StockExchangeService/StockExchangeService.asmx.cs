@@ -90,10 +90,4 @@ namespace StockExchange
             return null;
         }
     }
-
-    public class AuthSoapHd : SoapHeader
-    {
-        public string strUserName;
-        public string strPassword;
-    }
 }

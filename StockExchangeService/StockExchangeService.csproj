@@ -57,6 +57,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthSoapHd.cs" />
     <Compile Include="StockExchangeService.asmx.cs">
       <DependentUpon>StockExchangeService.asmx</DependentUpon>
       <SubType>Component</SubType>

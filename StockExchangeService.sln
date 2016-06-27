@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchangeService", "StockExchangeService\StockExchangeService.csproj", "{969836D0-E6DF-4AF6-8586-14C45539FB90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchangeServiceTests", "StockExchangeServiceTests\StockExchangeServiceTests.csproj", "{F15DA64A-F8A5-4305-B827-26728F3D8805}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchangeServiceIntegrationTests", "StockExchangeServiceTests\StockExchangeServiceIntegrationTests.csproj", "{F15DA64A-F8A5-4305-B827-26728F3D8805}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchangeDataProvider", "StockExchangeManager\StockExchangeDataProvider.csproj", "{64FC3061-EA27-4522-B2A2-D4717039803F}"
 EndProject
