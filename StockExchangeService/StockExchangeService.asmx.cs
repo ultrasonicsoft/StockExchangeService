@@ -24,7 +24,10 @@ namespace StockExchange
         private StockExhangeServiceManager stockExhangeServiceManager;
         public StockExchangeService()
         {
-            stockExhangeServiceManager = new StockExhangeServiceManager();
+            string dbConnectionString = @"Data Source=.\SQLExpress;Initial Catalog=StockExchangeDb; Trusted_Connection=True;";
+            IStockExchangeDbRepository stockExchangeDbRepository = new StockExchangeDbRepository(dbConnectionString);
+            StockExchangeDataProvider stockExchangeDataProvider = new StockExchangeDataProvider(stockExchangeDbRepository);
+            stockExhangeServiceManager = new StockExhangeServiceManager(stockExchangeDataProvider, stockExchangeDbRepository);
         }
 
         [WebMethod, SoapHeader("spAuthenticationHeader")]

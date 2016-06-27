@@ -16,10 +16,10 @@ namespace StockExchange.Service
         {
             allStocks = new List<DbStock>
             {
-                new DbStock {Id = 1, Code = "INFY", Name = "Infosys", Price = 3200},
-                new DbStock {Id = 1, Code = "REL", Name = "Reliance", Price = 2400},
-                new DbStock {Id = 1, Code = "WIPRO", Name = "Wipro", Price = 1200},
-                new DbStock {Id = 1, Code = "BHEL", Name = "Bharat Petrolium", Price = 230}
+                new DbStock {Id = 1, Code = "INFY", Name = "Infosys", Price = 3200.55},
+                new DbStock {Id = 1, Code = "REL", Name = "Reliance", Price = 2400.22},
+                new DbStock {Id = 1, Code = "WIPRO", Name = "Wipro", Price = 1200.33},
+                new DbStock {Id = 1, Code = "BHEL", Name = "Bharat Petrolium", Price = 230.44}
             };
         }
 
@@ -35,14 +35,14 @@ namespace StockExchange.Service
             var stock = allStocks.FirstOrDefault(x => x.Code.Equals(stockCode));
             if (stock == null)
             {
-                throw new Exception("Invalid stock code provided");
+                return double.MinValue;
             }
             return stock.Price;
         }
 
         public bool Logon(string userName, string password)
         {
-            return true;
+            return userName.Equals("balram") && password.Equals("balram");
         }
 
         public bool SignUp(User newUser)
@@ -57,12 +57,46 @@ namespace StockExchange.Service
 
         public List<Portfolio> GetAllPortfolios(string userName)
         {
-            return null;
+            List<Portfolio> allPortfolios = new List<Portfolio>
+            {
+                new Portfolio
+                {
+                    Name = "Portfolio-1",
+                    Id = 1,
+                    StockIds = new List<int> { 1,2 },
+                    UserId = "balram"
+                },
+                new Portfolio
+                {
+                    Name = "Portfolio-2",
+                    Id = 2,
+                    StockIds = new List<int> { 1,2,3,4 },
+                    UserId = "balram"
+                }
+            };
+            return allPortfolios;
         }
 
         public List<Stock> GetPortfolioDetails(int portfolioId)
         {
-            return null;
+            var stocksInPortfolio = new List<Stock>
+           {
+               new Stock
+               {
+                   Code = "INFY",
+                   Id = 1,
+                   Name = "Infosys",
+                   Price = 3200.55
+               },
+                new Stock
+               {
+                   Code = "REL",
+                   Id = 2,
+                   Name = "Reliance",
+                   Price = 2400.22
+               },
+           };
+            return stocksInPortfolio;
         }
     }
 }

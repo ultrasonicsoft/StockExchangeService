@@ -13,13 +13,15 @@ namespace StockExchange
     {
         private readonly IStockExchangeDataProvider stockExchangeDataProvider;
         private IStockExchangeDbRepository stockExchangeDbRepository;
-        private string dbConnectionString;
 
-        internal StockExhangeServiceManager()
+        internal StockExhangeServiceManager(IStockExchangeDataProvider stockExchangeDataProvider,
+            IStockExchangeDbRepository stockExchangeDbRepository)
         {
-            dbConnectionString = @"Data Source=.\SQLExpress;Initial Catalog=StockExchangeDb; Trusted_Connection=True;";
-            stockExchangeDbRepository = new StockExchangeDbRepository(dbConnectionString);
-            stockExchangeDataProvider = new StockExchangeDataProvider(stockExchangeDbRepository);
+//            dbConnectionString = @"Data Source=.\SQLExpress;Initial Catalog=StockExchangeDb; Trusted_Connection=True;";
+//            stockExchangeDbRepository = new StockExchangeDbRepository(dbConnectionString);
+//            stockExchangeDataProvider = new StockExchangeDataProvider(stockExchangeDbRepository);
+            this.stockExchangeDbRepository = stockExchangeDbRepository;
+            this.stockExchangeDataProvider = stockExchangeDataProvider;
         }
 
         internal IList<Stock> GetAllStock()
